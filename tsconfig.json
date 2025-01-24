@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES2022",
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      // DO NOT REMOVE: This is a special path that payload uses to resolve the payload.config.ts file in generated code/files
+      "@payload-config": [
+        "./src/payload.config.ts"
+      ],
+      "~/*": ["./src/*"],
+      "#tests/*": ["./tests/*"]
+    },
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
