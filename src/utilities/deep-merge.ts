@@ -3,6 +3,8 @@
 //
 
 export function isObject(item: unknown): boolean {
+  if (!item)
+    return false;
   return item && typeof item === "object" && !Array.isArray(item);
 }
 
