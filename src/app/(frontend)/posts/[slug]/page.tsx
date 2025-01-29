@@ -14,25 +14,27 @@ import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise });
-  const posts = await payload.find({
-    collection: "posts",
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  });
+export const revalidate = 0;
 
-  const params = posts.docs.map(({ slug }) => {
-    return { slug };
-  });
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config: configPromise });
+//   const posts = await payload.find({
+//     collection: "posts",
+//     draft: false,
+//     limit: 1000,
+//     overrideAccess: false,
+//     pagination: false,
+//     select: {
+//       slug: true,
+//     },
+//   });
 
-  return params;
-}
+//   const params = posts.docs.map(({ slug }) => {
+//     return { slug };
+//   });
+
+//   return params;
+// }
 
 interface Args {
   params: Promise<{

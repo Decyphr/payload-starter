@@ -16,6 +16,8 @@ import { cn } from "~/utilities/ui";
 
 import "./globals.css";
 
+export const revalidate = 0;
+
 export default async function RootLayout({
   children,
 }: {

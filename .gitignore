@@ -14,3 +14,6 @@ public/sitemap*.xml
 
 
 .pnpm-store
+
+
+**/terraform.tfvars

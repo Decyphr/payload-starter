@@ -16,29 +16,31 @@ import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const pages = await payload.find({
-    collection: "pages",
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  });
+export const revalidate = 0;
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== "home";
-    })
-    .map(({ slug }) => {
-      return { slug };
-    });
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config });
+//   const pages = await payload.find({
+//     collection: "pages",
+//     draft: false,
+//     limit: 1000,
+//     overrideAccess: false,
+//     pagination: false,
+//     select: {
+//       slug: true,
+//     },
+//   });
 
-  return params;
-}
+//   const params = pages.docs
+//     ?.filter((doc) => {
+//       return doc.slug !== "home";
+//     })
+//     .map(({ slug }) => {
+//       return { slug };
+//     });
+
+//   return params;
+// }
 
 interface Args {
   params: Promise<{

@@ -11,7 +11,7 @@ import { Pagination } from "~/components/pagination";
 
 import PageClient from "./page.client";
 
-export const revalidate = 600;
+export const revalidate = 0;
 
 interface Args {
   params: Promise<{
@@ -74,20 +74,20 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const { totalDocs } = await payload.count({
-    collection: "posts",
-    overrideAccess: false,
-  });
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config });
+//   const { totalDocs } = await payload.count({
+//     collection: "posts",
+//     overrideAccess: false,
+//   });
 
-  const totalPages = Math.ceil(totalDocs / 10);
+//   const totalPages = Math.ceil(totalDocs / 10);
 
-  const pages: { pageNumber: string }[] = [];
+//   const pages: { pageNumber: string }[] = [];
 
-  for (let i = 1; i <= totalPages; i++) {
-    pages.push({ pageNumber: String(i) });
-  }
+//   for (let i = 1; i <= totalPages; i++) {
+//     pages.push({ pageNumber: String(i) });
+//   }
 
-  return pages;
-}
+//   return pages;
+// }
