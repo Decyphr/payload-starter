@@ -11,7 +11,11 @@ export default antfu(
       semi: true,
       quotes: "double",
     },
-    ignores: ["**/migrations/*", "src/app/(payload)/admin/importMap.js"],
+    ignores: [
+      "**/migrations/*",
+      "src/app/(payload)/admin/importMap.js",
+      "**/payload-types.ts",
+    ],
   },
   {
     rules: {
