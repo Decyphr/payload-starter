@@ -6,7 +6,7 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL ?? "http://loc
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone", // Required for Docker hosting
+  // output: "standalone", // Required for Docker hosting
   images: {
     remotePatterns: [
       ...[NEXT_PUBLIC_SERVER_URL].map((item) => {
