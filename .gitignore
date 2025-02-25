@@ -6,6 +6,9 @@ node_modules
 .next
 .vercel
 
+.pnpm-store
+tsconfig.tsbuildinfo
+
 node-compile-cache
 
 # Payload default media upload directory
@@ -13,9 +16,5 @@ public/media/
 
 public/robots.txt
 public/sitemap*.xml
-
-
-.pnpm-store
-tsconfig.tsbuildinfo
 
 **/terraform.tfvars
