@@ -93,4 +93,14 @@ export default buildConfig({
     },
     tasks: [],
   },
+  // Used for Railway healthcheck
+  endpoints: [
+    {
+      path: "/health",
+      method: "get",
+      handler: async (_req) => {
+        return new Response("OK", { status: 200 });
+      },
+    },
+  ],
 });

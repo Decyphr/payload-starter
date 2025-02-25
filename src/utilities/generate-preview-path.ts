@@ -1,5 +1,7 @@
 import type { CollectionSlug, PayloadRequest } from "payload";
 
+import { getServerSideURL } from "~/utilities/get-url";
+
 const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
   posts: "/posts",
   pages: "",
@@ -11,7 +13,7 @@ interface Props {
   req: PayloadRequest;
 }
 
-export function generatePreviewPath({ collection, slug, req }: Props) {
+export function generatePreviewPath({ collection, slug }: Props) {
   const path = `${collectionPrefixMap[collection]}/${slug}`;
 
   const params = {
@@ -26,12 +28,9 @@ export function generatePreviewPath({ collection, slug, req }: Props) {
     encodedParams.append(key, value);
   });
 
-  const isProduction
-    = process.env.NODE_ENV === "production"
-      || Boolean(process.env.VERCEL_PROJECT_PRODUCTION_URL);
-  const protocol = isProduction ? "https:" : req.protocol;
+  const base = getServerSideURL();
 
-  const url = `${protocol}//${req.host}/next/preview?${encodedParams.toString()}`;
+  const url = `${base}/next/preview?${encodedParams.toString()}`;
 
   return url;
 }

@@ -6,6 +6,8 @@ node_modules
 .next
 .vercel
 
+node-compile-cache
+
 # Payload default media upload directory
 public/media/
 
