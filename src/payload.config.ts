@@ -103,4 +103,8 @@ export default buildConfig({
       },
     },
   ],
+  // Disabled GraphQL API (unused)
+  graphQL: {
+    disable: true,
+  },
 });
