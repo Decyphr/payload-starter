@@ -6,7 +6,7 @@ export default {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  darkMode: ["selector", '[data-theme="dark"]'],
+  darkMode: ["selector", "[data-theme=\"dark\"]"],
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
   prefix: "",
   safelist: [
@@ -28,18 +28,18 @@ export default {
       center: true,
       padding: {
         "2xl": "2rem",
-        DEFAULT: "1rem",
-        lg: "2rem",
-        md: "2rem",
-        sm: "1rem",
-        xl: "2rem",
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "md": "2rem",
+        "sm": "1rem",
+        "xl": "2rem",
       },
       screens: {
         "2xl": "86rem",
-        lg: "64rem",
-        md: "48rem",
-        sm: "40rem",
-        xl: "80rem",
+        "lg": "64rem",
+        "md": "48rem",
+        "sm": "40rem",
+        "xl": "80rem",
       },
     },
     extend: {
@@ -104,13 +104,13 @@ export default {
           to: { height: "0" },
         },
       },
-      typography: ({ theme }) => ({
+      typography: () => ({
         DEFAULT: {
           css: [
             {
               "--tw-prose-body": "var(--text)",
               "--tw-prose-headings": "var(--text)",
-              h1: {
+              "h1": {
                 fontWeight: "normal",
                 marginBottom: "0.25em",
               },

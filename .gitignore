@@ -18,3 +18,5 @@ public/robots.txt
 public/sitemap*.xml
 
 **/terraform.tfvars
+
+*storybook.log
