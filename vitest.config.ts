@@ -1,13 +1,14 @@
 /// <reference types="vitest" />
 
+import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
-import { defineConfig } from "vitest/config";
 import "dotenv/config";
 import { fileURLToPath } from "node:url";
-import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
-const dirname =
-  typeof __dirname !== "undefined"
+import { defineConfig } from "vitest/config";
+
+const dirname
+  = typeof __dirname !== "undefined"
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url));
 
