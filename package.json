@@ -2,7 +2,7 @@
   "name": "payload-playground",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.5.0",
+  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b",
   "description": "Website template for Payload",
   "license": "MIT",
   "engines": {
@@ -75,6 +75,7 @@
     "@storybook/experimental-nextjs-vite": "8.6.2",
     "@storybook/react": "^8.6.2",
     "@storybook/test": "^8.6.2",
+    "@tailwindcss/postcss": "^4.0.9",
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -87,7 +88,6 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/browser": "3.0.7",
     "@vitest/coverage-v8": "^3.0.7",
-    "autoprefixer": "^10.4.20",
     "copyfiles": "^2.4.1",
     "eslint": "^9.21.0",
     "eslint-config-next": "15.1.5",
@@ -102,7 +102,7 @@
     "postcss": "^8.5.3",
     "prettier": "^3.5.2",
     "storybook": "^8.6.2",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.9",
     "typescript": "5.7.3",
     "vitest": "^3.0.7"
   },

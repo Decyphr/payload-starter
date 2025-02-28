@@ -71,4 +71,8 @@ export default defineConfig({
       all: true,
     },
   },
+  optimizeDeps: {
+    include: ["@storybook/test", "lucide-react"],
+    exclude: [],
+  },
 });

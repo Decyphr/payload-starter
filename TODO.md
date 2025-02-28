@@ -11,5 +11,6 @@ TODO:
 - [ ] Email SMTP setup with SendGrid (add how-to config to README.md)
 - [ ] Update README.md with starter project details
 - [ ] Add `pages` collection to payload search plugin
-- [ ] Add Storybook for component documentation
-- [ ] Update Tailwind to v4
+- [x] Update Tailwind to v4
+- [x] Add Storybook for component documentation
+- [ ] Add Storybook [atomic design structure](https://ui.makerkit.dev/?path=/story/molecules-alert--alert-component) (atoms, molecules, organisms, templates, etc...)
