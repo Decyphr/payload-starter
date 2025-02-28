@@ -14,3 +14,5 @@ TODO:
 - [x] Update Tailwind to v4
 - [x] Add Storybook for component documentation
 - [ ] Add Storybook [atomic design structure](https://ui.makerkit.dev/?path=/story/molecules-alert--alert-component) (atoms, molecules, organisms, templates, etc...)
+- [ ] Revert Frontend to barebones styling (base shadcn) for quick start on new projects
+- [ ] Restructure project to move all CMS related code to a `cms` folder
