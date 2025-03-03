@@ -1,0 +1,66 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  lint:
+    name: 🔬 Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install PNPM
+        uses: ./.github/workflows/install-pnpm.yaml
+
+      - name: 📥 Install Dependencies
+        run: pnpm install
+
+      - name: 🔬 Lint
+        run: pnpm run lint
+
+  typecheck:
+    name: 🔎 Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install PNPM
+        uses: ./.github/workflows/install-pnpm.yaml
+
+      - name: 📥 Install Dependencies
+        run: pnpm install
+
+      - name: 🔎 Type check
+        run: pnpm run typecheck
+
+  unit-tests:
+    name: ⚡ Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install PNPM
+        uses: ./.github/workflows/install-pnpm.yaml
+
+      - name: 📥 Install Dependencies
+        run: pnpm install
+
+      - name: ⚡ Run vitest
+        run: pnpm test:run
