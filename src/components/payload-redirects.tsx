@@ -2,7 +2,7 @@ import type React from "react";
 
 import { notFound, redirect } from "next/navigation";
 
-import type { Page, Post } from "~/payload-types";
+import type { Page, Post } from "~/cms/payload-types";
 
 import { getCachedDocument } from "~/utilities/get-document";
 import { getCachedRedirects } from "~/utilities/get-redirects";

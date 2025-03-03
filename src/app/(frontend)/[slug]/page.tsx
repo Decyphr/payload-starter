@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
-import config from "@payload-config";
 import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import React, { cache } from "react";
 
-import type { Page as PageType } from "~/payload-types";
+import type { Page as PageType } from "~/cms/payload-types";
 
-import { RenderBlocks } from "~/blocks/render-blocks";
+import { RenderBlocks } from "~/cms/blocks/render-blocks";
+import { RenderHero } from "~/cms/heros/render-hero";
+import config from "~/cms/payload.config";
 import { LivePreviewListener } from "~/components/live-preview-listener";
 import { PayloadRedirects } from "~/components/payload-redirects";
 import { homeStatic } from "~/endpoints/seed/home-static";
-import { RenderHero } from "~/heros/render-hero";
 import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";

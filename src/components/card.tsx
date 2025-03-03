@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React, { Fragment } from "react";
 
-import type { Post } from "~/payload-types";
+import type { Post } from "~/cms/payload-types";
 
 import { Media } from "~/components/media";
 import { cn } from "~/utilities/ui";

@@ -1,10 +1,10 @@
 import type { Metadata } from "next/types";
 
-import config from "@payload-config";
 import { notFound } from "next/navigation";
 import { getPayload } from "payload";
 import React from "react";
 
+import config from "~/cms/payload.config";
 import { CollectionArchive } from "~/components/collection-archive";
 import { PageRange } from "~/components/page-range";
 import { Pagination } from "~/components/pagination";

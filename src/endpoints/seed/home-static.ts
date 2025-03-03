@@ -1,4 +1,4 @@
-import type { Page } from "~/payload-types";
+import type { Page } from "~/cms/payload-types";
 // @ts-expect-error - required
 export const homeStatic: Page = {
   slug: "home",

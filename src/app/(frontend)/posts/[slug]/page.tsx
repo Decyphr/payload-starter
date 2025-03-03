@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 
-import configPromise from "@payload-config";
 import { draftMode } from "next/headers";
 import { getPayload } from "payload";
 import React, { cache } from "react";
 
-import { RelatedPosts } from "~/blocks/related-posts/component";
+import { RelatedPosts } from "~/cms/blocks/related-posts/component";
+import { PostHero } from "~/cms/heros/post-hero";
+import configPromise from "~/cms/payload.config";
 import { LivePreviewListener } from "~/components/live-preview-listener";
 import { PayloadRedirects } from "~/components/payload-redirects";
 import RichText from "~/components/rich-text";
-import { PostHero } from "~/heros/post-hero";
 import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";

@@ -1,13 +1,13 @@
 import type { Metadata } from "next/types";
 
-import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import React from "react";
 
 import type { CardPostData } from "~/components/card";
 
+import configPromise from "~/cms/payload.config";
+import { Search } from "~/cms/search/component";
 import { CollectionArchive } from "~/components/collection-archive";
-import { Search } from "~/search/component";
 
 import PageClient from "./page.client";
 

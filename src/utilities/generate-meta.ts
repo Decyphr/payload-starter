@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import type { Config, Media, Page, Post } from "~/payload-types";
+import type { Config, Media, Page, Post } from "~/cms/payload-types";
 
 import { getServerSideURL } from "~/utilities/get-url";
 import { mergeOpenGraph } from "~/utilities/merge-open-graph";

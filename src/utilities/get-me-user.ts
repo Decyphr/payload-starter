@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import type { User } from "~/payload-types";
+import type { User } from "~/cms/payload-types";
 
 import { getClientSideURL } from "~/utilities/get-url";
 

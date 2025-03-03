@@ -1,8 +1,9 @@
-import config from "@payload-config";
 import { unstable_cache } from "next/cache";
 import { getPayload } from "payload";
 
-import type { Config } from "~/payload-types";
+import type { Config } from "~/cms/payload-types";
+
+import config from "~/cms/payload.config";
 
 type Global = keyof Config["globals"];
 

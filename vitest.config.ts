@@ -11,13 +11,12 @@ const dirname
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url));
 
-// More info at: https://storybook.js.org/docs/writing-tests/test-addon
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "./src"),
-      "#tests": path.resolve(__dirname, "./tests"),
+      "~": path.resolve(dirname, "./src"),
+      "#tests": path.resolve(dirname, "./tests"),
     },
   },
   test: {
@@ -30,6 +29,8 @@ export default defineConfig({
           environment: "jsdom",
         },
       },
+      // Storybook tests configuration
+      // More info at: https://storybook.js.org/docs/writing-tests/test-addon
       // {
       //   extends: true,
       //   plugins: [

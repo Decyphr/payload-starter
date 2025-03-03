@@ -1,8 +1,9 @@
-import configPromise from "@payload-config";
 import { unstable_cache } from "next/cache";
 import { getPayload } from "payload";
 
-import type { Config } from "~/payload-types";
+import type { Config } from "~/cms/payload-types";
+
+import configPromise from "~/cms/payload.config";
 
 type Collection = keyof Config["collections"];
 

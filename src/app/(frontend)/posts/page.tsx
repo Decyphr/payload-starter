@@ -1,17 +1,16 @@
 import type { Metadata } from "next/types";
 
-import config from "@payload-config";
 import { getPayload } from "payload";
 import React from "react";
 
+import config from "~/cms/payload.config";
 import { CollectionArchive } from "~/components/collection-archive";
 import { PageRange } from "~/components/page-range";
 import { Pagination } from "~/components/pagination";
 
 import PageClient from "./page.client";
 
-export const dynamic = "force-static";
-export const revalidate = 600;
+export const revalidate = 0;
 
 export default async function Page() {
   const payload = await getPayload({ config });

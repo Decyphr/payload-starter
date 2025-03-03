@@ -11,17 +11,17 @@ import {
   RichText as RichTextWithoutBlocks,
 } from "@payloadcms/richtext-lexical/react";
 
-import type { CodeBlockProps } from "~/blocks/code/component";
+import type { CodeBlockProps } from "~/cms/blocks/code/component";
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
-} from "~/payload-types";
+} from "~/cms/payload-types";
 
-import { BannerBlock } from "~/blocks/banner/component";
-import { CallToActionBlock } from "~/blocks/call-to-action/component";
-import { CodeBlock } from "~/blocks/code/component";
-import { MediaBlock } from "~/blocks/media-block/component";
+import { BannerBlock } from "~/cms/blocks/banner/component";
+import { CallToActionBlock } from "~/cms/blocks/call-to-action/component";
+import { CodeBlock } from "~/cms/blocks/code/component";
+import { MediaBlock } from "~/cms/blocks/media-block/component";
 import { cn } from "~/utilities/ui";
 
 type NodeTypes =

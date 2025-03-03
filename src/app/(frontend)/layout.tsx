@@ -5,9 +5,9 @@ import { GeistSans } from "geist/font/sans";
 import { draftMode } from "next/headers";
 import React from "react";
 
-import { AdminBar } from "~/components/admin-bar";
-import { Footer } from "~/footer/component";
-import { Header } from "~/header/component";
+import { AdminBar } from "~/cms/components/admin-bar";
+import { Footer } from "~/cms/footer/component";
+import { Header } from "~/cms/header/component";
 import { Providers } from "~/providers";
 import { InitTheme } from "~/providers/theme/init-theme";
 import { getServerSideURL } from "~/utilities/get-url";

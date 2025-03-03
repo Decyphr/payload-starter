@@ -6,10 +6,11 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "baseUrl": ".",
     "paths": {
       // DO NOT REMOVE: This is a special path that payload uses to resolve the payload.config.ts file in generated code/files
       "@payload-config": [
-        "./src/payload.config.ts"
+        "src/cms/payload.config.ts"
       ],
       "~/*": ["./src/*"],
       "#tests/*": ["./tests/*"]
