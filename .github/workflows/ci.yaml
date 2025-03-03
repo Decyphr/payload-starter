@@ -1,7 +1,7 @@
 name: CI Pipeline
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -13,6 +13,10 @@ permissions:
   actions: write
   contents: read
 
+env:
+  NODE_VERSION: 22
+  PNPM_VERSION: 10
+
 jobs:
   lint:
     name: 🔬 Lint
@@ -21,8 +25,19 @@ jobs:
       - name: ⬇️ Checkout Repo
         uses: actions/checkout@v4
 
-      - name: 🔧 Install PNPM
-        uses: ./.github/workflows/install-pnpm.yaml
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: 📥 Install Dependencies
         run: pnpm install
@@ -37,8 +52,19 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔧 Install PNPM
-        uses: ./.github/workflows/install-pnpm.yaml
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: 📥 Install Dependencies
         run: pnpm install
@@ -53,8 +79,19 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔧 Install PNPM
-        uses: ./.github/workflows/install-pnpm.yaml
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: 📥 Install Dependencies
         run: pnpm install
