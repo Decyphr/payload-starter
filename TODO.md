@@ -7,8 +7,12 @@ TODO:
 - [x] Add Vitest for unit testing
 - [ ] Add Playwright for end-to-end testing
 - [x] Add husky for pre-commit hooks _(lint, format, test)_
-- [ ] Add Storybook for component documentation
 - [ ] Add a CI/CD pipeline with GitHub Actions
 - [ ] Email SMTP setup with SendGrid (add how-to config to README.md)
 - [ ] Update README.md with starter project details
 - [ ] Add `pages` collection to payload search plugin
+- [x] Update Tailwind to v4
+- [x] Add Storybook for component documentation
+- [ ] Add Storybook [atomic design structure](https://ui.makerkit.dev/?path=/story/molecules-alert--alert-component) (atoms, molecules, organisms, templates, etc...)
+- [ ] Revert Frontend to barebones styling (base shadcn) for quick start on new projects
+- [ ] Restructure project to move all CMS related code to a `cms` folder
