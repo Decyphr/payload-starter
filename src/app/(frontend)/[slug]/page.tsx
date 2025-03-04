@@ -11,7 +11,6 @@ import { RenderHero } from "~/cms/heros/render-hero";
 import config from "~/cms/payload.config";
 import { LivePreviewListener } from "~/components/live-preview-listener";
 import { PayloadRedirects } from "~/components/payload-redirects";
-import { homeStatic } from "~/endpoints/seed/home-static";
 import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";
@@ -74,16 +73,9 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { slug = "home" } = await paramsPromise;
   const url = `/${slug}`;
 
-  let page: PageType | null;
-
-  page = await queryPageBySlug({
+  const page: PageType | null = await queryPageBySlug({
     slug,
   });
-
-  // Remove this code once your website is seeded
-  if (!page && slug === "home") {
-    page = homeStatic;
-  }
 
   if (!page) {
     return <PayloadRedirects url={url} />;
