@@ -22,6 +22,7 @@ import { RowLabel as RowLabel_3467e79d35f82e1d0b0185142474834a } from '~/cms/hea
 import { RowLabel as RowLabel_44516e4af18450ad292468c8d0cd9406 } from '~/cms/footer/row-label'
 import { default as default_9bc9893bacda747daf7bed11d01b60d2 } from '~/cms/components/before-dashboard'
 import { default as default_92cc25129ba676f39b69b5cd8b00efa9 } from '~/cms/components/before-login'
+import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -47,5 +48,6 @@ export const importMap = {
   "~/cms/header/row-label#RowLabel": RowLabel_3467e79d35f82e1d0b0185142474834a,
   "~/cms/footer/row-label#RowLabel": RowLabel_44516e4af18450ad292468c8d0cd9406,
   "~/cms/components/before-dashboard#default": default_9bc9893bacda747daf7bed11d01b60d2,
-  "~/cms/components/before-login#default": default_92cc25129ba676f39b69b5cd8b00efa9
+  "~/cms/components/before-login#default": default_92cc25129ba676f39b69b5cd8b00efa9,
+  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }
