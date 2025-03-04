@@ -5,14 +5,12 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import { anyone } from "~/cms/access/anyone";
 import { authenticated } from "~/cms/access/authenticated";
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
+// const filename = fileURLToPath(import.meta.url);
+// const dirname = path.dirname(filename);
 
 export const Media: CollectionConfig = {
   slug: "media",
@@ -44,7 +42,7 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
-    staticDir: path.resolve(dirname, "../../public/media"),
+    // staticDir: path.resolve(dirname, "../../../public/media"),
     adminThumbnail: "thumbnail",
     focalPoint: true,
     imageSizes: [
