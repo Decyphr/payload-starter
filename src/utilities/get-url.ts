@@ -19,5 +19,5 @@ export function getClientSideURL() {
     return `${protocol}//${domain}${port ? `:${port}` : ""}`;
   }
 
-  return process.env.NEXT_PUBLIC_SERVER_URL || "";
+  return process.env.NEXT_PUBLIC_SERVER_URL ?? "";
 }

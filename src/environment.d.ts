@@ -4,6 +4,8 @@ declare global {
       PAYLOAD_SECRET: string;
       DATABASE_URI: string;
       NEXT_PUBLIC_SERVER_URL: string;
+      PREVIEW_SECRET: string;
+      CRON_SECRET: string;
       S3_BUCKET: string;
       S3_ENDPOINT: string;
       S3_ACCESS_KEY: string;

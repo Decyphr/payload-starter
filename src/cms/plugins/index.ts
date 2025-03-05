@@ -93,7 +93,7 @@ export const plugins: Plugin[] = [
     },
   }),
   searchPlugin({
-    collections: ["posts"],
+    collections: ["pages", "posts"],
     beforeSync: beforeSyncWithSearch,
     searchOverrides: {
       fields: ({ defaultFields }) => {

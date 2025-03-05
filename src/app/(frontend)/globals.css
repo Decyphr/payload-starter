@@ -31,7 +31,8 @@
   --radius: 0.6rem;
 }
 
-.dark {
+.dark,
+[data-theme="dark"] {
   --background: hsl(240 10% 3.9%);
   --foreground: hsl(0 0% 98%);
   --card: hsl(240 10% 3.9%);
@@ -87,6 +88,15 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+}
+
+html {
+  opacity: 0;
+}
+
+html[data-theme="dark"],
+html[data-theme="light"] {
+  opacity: initial;
 }
 
 @layer base {

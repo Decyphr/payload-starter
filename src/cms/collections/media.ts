@@ -41,7 +41,7 @@ export const Media: CollectionConfig = {
     },
   ],
   upload: {
-    // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
+    // Uncomment this line to enable local file uploads (Only use for development prior to s3 availability)
     // staticDir: path.resolve(dirname, "../../../public/media"),
     adminThumbnail: "thumbnail",
     focalPoint: true,
