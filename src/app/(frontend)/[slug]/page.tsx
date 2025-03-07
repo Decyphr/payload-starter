@@ -15,31 +15,31 @@ import { generateMeta } from "~/utilities/generate-meta";
 
 import PageClient from "./page.client";
 
-// export const revalidate = 0;
+export const revalidate = 0;
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const pages = await payload.find({
-    collection: "pages",
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  });
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config });
+//   const pages = await payload.find({
+//     collection: "pages",
+//     draft: false,
+//     limit: 1000,
+//     overrideAccess: false,
+//     pagination: false,
+//     select: {
+//       slug: true,
+//     },
+//   });
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== "home";
-    })
-    .map(({ slug }) => {
-      return { slug };
-    });
+//   const params = pages.docs
+//     ?.filter((doc) => {
+//       return doc.slug !== "home";
+//     })
+//     .map(({ slug }) => {
+//       return { slug };
+//     });
 
-  return params;
-}
+//   return params;
+// }
 
 interface Args {
   params: Promise<{

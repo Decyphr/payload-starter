@@ -10,9 +10,9 @@ import { Pagination } from "~/components/pagination";
 
 import PageClient from "./page.client";
 
-// export const revalidate = 0;
-export const dynamic = "force-static";
-export const revalidate = 600;
+export const revalidate = 0;
+// export const dynamic = "force-static";
+// export const revalidate = 600;
 
 export default async function Page() {
   const payload = await getPayload({ config });
