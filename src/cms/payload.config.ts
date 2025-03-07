@@ -1,11 +1,12 @@
 import type { PayloadRequest } from "payload";
 
-// storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres";
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import nodemailerSendgrid from "nodemailer-sendgrid";
 import { buildConfig } from "payload";
-import sharp from "sharp"; // sharp-import
+import sharp from "sharp";
 
 import { Categories } from "~/cms/collections/categories";
 import { Media } from "~/cms/collections/media";
@@ -36,7 +37,6 @@ export default buildConfig({
     },
     user: Users.slug,
     livePreview: {
-      url: getServerSideURL(),
       breakpoints: [
         {
           label: "Mobile",
@@ -104,6 +104,15 @@ export default buildConfig({
       },
     },
   ],
+  // Sendgrid Email SMTP configuration
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.EMAIL_FROM,
+    defaultFromName: process.env.EMAIL_NAME,
+    transportOptions: nodemailerSendgrid({
+      apiKey: process.env.SENDGRID_API_KEY,
+    }),
+  }),
+
   // Disabled GraphQL API (unused)
   graphQL: {
     disable: true,

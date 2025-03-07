@@ -68,6 +68,7 @@ export const plugins: Plugin[] = [
     fields: {
       payment: false,
     },
+    defaultToEmail: process.env.EMAIL_TO as string,
     formOverrides: {
       fields: ({ defaultFields }) => {
         return defaultFields.map((field) => {

@@ -6,14 +6,18 @@ declare global {
       NEXT_PUBLIC_SERVER_URL: string;
       PREVIEW_SECRET: string;
       CRON_SECRET: string;
+
+      // S3
       S3_BUCKET: string;
       S3_ENDPOINT: string;
       S3_ACCESS_KEY: string;
       S3_SECRET_KEY: string;
-      // TODO: Add SMTP
-      // SMTP_HOST: string;
-      // SMTP_USER: string;
-      // SMTP_PASSWORD: string;
+
+      // EMAIL
+      EMAIL_NAME: string;
+      EMAIL_FROM: string;
+      EMAIL_TO: string;
+      SENDGRID_API_KEY: string;
     }
   }
 }

@@ -127,6 +127,7 @@ export const FormBlock: React.FC<
           }
         }
         catch (err) {
+          console.warn("Caught an error while submitting form!!");
           console.warn(err);
           setIsLoading(false);
           setError({

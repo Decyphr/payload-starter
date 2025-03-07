@@ -65,7 +65,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     },
   });
 
-  return result.docs?.[0] || null;
+  return result.docs?.[0] ?? null;
 });
 
 export default async function Page({ params: paramsPromise }: Args) {
