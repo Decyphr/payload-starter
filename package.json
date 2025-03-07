@@ -9,11 +9,11 @@
     "node": "^18.20.2 || >=20.9.0"
   },
   "scripts": {
+    "setup": "cross-env NODE_OPTIONS=--no-deprecation pnpm install && pnpm dlx husky",
     "clean": "rm -rf .next",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
-    "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm db:up && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "ii": "cross-env NODE_OPTIONS=--no-deprecation pnpm --ignore-workspace install",
@@ -25,7 +25,6 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation payload migrate && next start",
     "test": "vitest",
     "test:run": "pnpm test run",
-    "prepare": "pnpm dlx husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
