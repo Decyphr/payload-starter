@@ -4,6 +4,8 @@ import { CheckCircle2Icon } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
 
+import { StoryContainer } from "../story-container";
+
 const meta: Meta<typeof Button> = {
   title: "Atoms/Button",
   component: Button,
@@ -18,6 +20,11 @@ const meta: Meta<typeof Button> = {
       options: ["default", "destructive", "ghost", "link", "outline", "secondary"],
     },
   },
+  render: args => (
+    <StoryContainer>
+      <Button {...args} />
+    </StoryContainer>
+  ),
 };
 
 export default meta;
@@ -94,9 +101,11 @@ export const WithIcon: Story = {
     variant: "default",
   },
   render: args => (
-    <Button {...args}>
-      <CheckCircle2Icon className="size-4 mr-2" />
-      {args.children}
-    </Button>
+    <StoryContainer>
+      <Button {...args}>
+        <CheckCircle2Icon className="size-4 mr-2" />
+        {args.children}
+      </Button>
+    </StoryContainer>
   ),
 };

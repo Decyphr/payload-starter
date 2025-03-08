@@ -3,10 +3,11 @@ import React from "react";
 
 import type { Footer as FooterType } from "~/cms/payload-types";
 
-import { CMSLink } from "~/components/link";
 import { Logo } from "~/components/logo";
 import { ThemeSelector } from "~/providers/theme/theme-selector";
 import { getCachedGlobal } from "~/utilities/get-globals";
+
+import { FooterNav } from "./nav";
 
 export async function Footer() {
   const footerData: FooterType = await getCachedGlobal("footer", 1)();
@@ -22,11 +23,7 @@ export async function Footer() {
 
         <div className="flex flex-col-reverse items-start md:flex-row gap-4 md:items-center">
           <ThemeSelector />
-          <nav className="flex flex-col md:flex-row gap-4">
-            {navItems.map(({ link }, i) => {
-              return <CMSLink className="text-white" key={i} {...link} />;
-            })}
-          </nav>
+          <FooterNav links={navItems} />
         </div>
       </div>
     </footer>

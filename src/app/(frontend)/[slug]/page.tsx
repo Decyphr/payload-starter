@@ -7,8 +7,8 @@ import React, { cache } from "react";
 import type { Page as PageType } from "~/cms/payload-types";
 
 import { RenderBlocks } from "~/cms/blocks/render-blocks";
-import { RenderHero } from "~/cms/heros/render-hero";
 import config from "~/cms/payload.config";
+import { RenderHero } from "~/components/heros/render-hero";
 import { LivePreviewListener } from "~/components/live-preview-listener";
 import { PayloadRedirects } from "~/components/payload-redirects";
 import { generateMeta } from "~/utilities/generate-meta";

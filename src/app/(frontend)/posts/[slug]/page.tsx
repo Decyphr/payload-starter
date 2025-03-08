@@ -5,8 +5,8 @@ import { getPayload } from "payload";
 import React, { cache } from "react";
 
 import { RelatedPosts } from "~/cms/blocks/related-posts/component";
-import { PostHero } from "~/cms/heros/post-hero";
 import configPromise from "~/cms/payload.config";
+import { PostHero } from "~/components/heros/post-hero";
 import { LivePreviewListener } from "~/components/live-preview-listener";
 import { PayloadRedirects } from "~/components/payload-redirects";
 import RichText from "~/components/rich-text";

@@ -102,10 +102,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    settings: Setting;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    settings: SettingsSelect<false> | SettingsSelect<true>;
   };
   locale: null;
   user: User & {
@@ -1594,6 +1596,41 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings".
+ */
+export interface Setting {
+  id: number;
+  generalSettings?: {
+    siteTitle?: string | null;
+    tagline?: string | null;
+    logo?: (number | null) | Media;
+    favicon?: (number | null) | Media;
+    adminEmail?: string | null;
+    phone?: string | null;
+  };
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  social?: {
+    facebook?: string | null;
+    x?: string | null;
+    instagram?: string | null;
+    linkedin?: string | null;
+    youtube?: string | null;
+  };
+  analytics?: {
+    googleAnalyticsID?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -1633,6 +1670,46 @@ export interface FooterSelect<T extends boolean = true> {
               label?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "settings_select".
+ */
+export interface SettingsSelect<T extends boolean = true> {
+  generalSettings?:
+    | T
+    | {
+        siteTitle?: T;
+        tagline?: T;
+        logo?: T;
+        favicon?: T;
+        adminEmail?: T;
+        phone?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  social?:
+    | T
+    | {
+        facebook?: T;
+        x?: T;
+        instagram?: T;
+        linkedin?: T;
+        youtube?: T;
+      };
+  analytics?:
+    | T
+    | {
+        googleAnalyticsID?: T;
       };
   updatedAt?: T;
   createdAt?: T;

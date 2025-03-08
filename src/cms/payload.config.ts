@@ -19,6 +19,8 @@ import { Header } from "~/cms/header/config";
 import { plugins } from "~/cms/plugins";
 import { getServerSideURL } from "~/utilities/get-url";
 
+import { Settings } from "./settings/config";
+
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
@@ -68,7 +70,7 @@ export default buildConfig({
   }),
   collections: [Pages, Posts, Media, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, Settings],
   plugins: [
     ...plugins,
     // storage-adapter-placeholder

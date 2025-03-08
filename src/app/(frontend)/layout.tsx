@@ -6,15 +6,16 @@ import { draftMode } from "next/headers";
 import React from "react";
 
 import { AdminBar } from "~/cms/components/admin-bar";
-import { Footer } from "~/cms/footer/component";
-import { Header } from "~/cms/header/component";
+import { Footer } from "~/components/globals/footer";
+import { Header } from "~/components/globals/header";
 import { Providers } from "~/providers";
 import { InitTheme } from "~/providers/theme/init-theme";
 import { getServerSideURL } from "~/utilities/get-url";
-import { mergeOpenGraph } from "~/utilities/merge-open-graph";
-import { cn } from "~/utilities/ui";
 
 import "./globals.css";
+
+import { mergeOpenGraph } from "~/utilities/merge-open-graph";
+import { cn } from "~/utilities/ui";
 
 export const revalidate = 0;
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
 
   return (
     <html
+      id="website"
       className={cn(GeistSans.variable, GeistMono.variable)}
       lang="en"
       suppressHydrationWarning

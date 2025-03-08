@@ -90,7 +90,8 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-html {
+/* Avoid flashes of unstyled content. (Unless in storybook) */
+html#website:not([data-theme="dark"]):not([data-theme="light"]) {
   opacity: 0;
 }
 

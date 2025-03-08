@@ -2,9 +2,9 @@ import React from "react";
 
 import type { Page } from "~/cms/payload-types";
 
-import { HighImpactHero } from "~/cms/heros/high-impact";
-import { LowImpactHero } from "~/cms/heros/low-impact";
-import { MediumImpactHero } from "~/cms/heros/medium-impact";
+import { HighImpactHero } from "./high-impact";
+import { LowImpactHero } from "./low-impact";
+import { MediumImpactHero } from "./medium-impact";
 
 const heroes = {
   highImpact: HighImpactHero,
