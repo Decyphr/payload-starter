@@ -10,7 +10,7 @@ export const socials: Field = {
       type: "text",
     },
     {
-      name: "x",
+      name: "twitter",
       label: "X (formerly Twitter)",
       type: "text",
     },

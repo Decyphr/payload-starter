@@ -1,28 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { HeaderNav } from "~/components/globals/header/nav";
+import { HeaderClient } from "~/components/globals/header/component.client";
 
-import { headerData } from "../_mocks/links";
-import { StoryContainer } from "../story-container";
+import { headerData } from "../_mocks/nav";
 
-const meta: Meta<typeof HeaderNav> = {
+const meta: Meta<typeof HeaderClient> = {
   title: "Organisms/Header",
-  component: HeaderNav,
+  component: HeaderClient,
   argTypes: {
     data: {
       control: "object",
       defaultValue: headerData,
     },
   },
-  render: args => (
-    <StoryContainer>
-      <HeaderNav {...args} />
-    </StoryContainer>
-  ),
 };
 
 export default meta;
-type Story = StoryObj<typeof HeaderNav>;
+type Story = StoryObj<typeof HeaderClient>;
 
 // Default navigation menu
 export const Default: Story = {

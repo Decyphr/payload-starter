@@ -31,7 +31,7 @@
   --radius: 0.6rem;
 }
 
-.dark,
+/* .dark,
 [data-theme="dark"] {
   --background: hsl(240 10% 3.9%);
   --foreground: hsl(0 0% 98%);
@@ -57,7 +57,7 @@
   --chart-3: hsl(30 80% 55%);
   --chart-4: hsl(280 65% 60%);
   --chart-5: hsl(340 75% 55%);
-}
+} */
 
 @theme inline {
   --color-background: var(--background);
@@ -91,14 +91,16 @@
 }
 
 /* Avoid flashes of unstyled content. (Unless in storybook) */
-html#website:not([data-theme="dark"]):not([data-theme="light"]) {
+/* Uncomment below if a theme-switcher is necessary */
+
+/* html#website:not([data-theme="dark"]):not([data-theme="light"]) {
   opacity: 0;
 }
 
 html[data-theme="dark"],
 html[data-theme="light"] {
   opacity: initial;
-}
+} */
 
 @layer base {
   * {
@@ -116,5 +118,32 @@ html[data-theme="light"] {
   h6 {
     font-size: auto;
     font-weight: auto;
+  }
+
+  h1 {
+    @apply scroll-m-20 mt-2 text-6xl tracking-tighter sm:text-8xl text-pretty;
+  }
+  h2 {
+    @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-pretty;
+  }
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  p {
+    @apply leading-7;
+  }
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+  ul {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+
+  /* Form Field Required Asterisk Class*/
+  .required {
+    @apply text-destructive;
   }
 }

@@ -2,14 +2,11 @@ import type { Metadata } from "next";
 
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-import { draftMode } from "next/headers";
 import React from "react";
 
-import { AdminBar } from "~/cms/components/admin-bar";
 import { Footer } from "~/components/globals/footer";
 import { Header } from "~/components/globals/header";
 import { Providers } from "~/providers";
-import { InitTheme } from "~/providers/theme/init-theme";
 import { getServerSideURL } from "~/utilities/get-url";
 
 import "./globals.css";
@@ -24,7 +21,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isEnabled } = await draftMode();
+  // const { isEnabled } = await draftMode();
 
   return (
     <html
@@ -34,17 +31,17 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <InitTheme />
+        {/* <InitTheme /> */}
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className="dark">
+      <body className="bg-background text-foreground">
         <Providers>
-          <AdminBar
+          {/* <AdminBar
             adminBarProps={{
               preview: isEnabled,
             }}
-          />
+          /> */}
 
           <Header />
           {children}

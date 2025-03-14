@@ -1,12 +1,6 @@
 import type { CollectionConfig } from "payload";
 
-import {
-  MetaDescriptionField,
-  MetaImageField,
-  MetaTitleField,
-  OverviewField,
-  PreviewField,
-} from "@payloadcms/plugin-seo/fields";
+import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from "@payloadcms/plugin-seo/fields";
 import {
   BlocksFeature,
   FixedToolbarFeature,
@@ -141,6 +135,16 @@ export const Posts: CollectionConfig<"posts"> = {
           name: "meta",
           label: "SEO",
           fields: [
+            {
+              name: "hidden",
+              type: "checkbox",
+              label: "Hidden Page?",
+              defaultValue: false,
+              admin: {
+                description:
+                "If checked, this page will be hidden from search engines and not indexed.",
+              },
+            },
             OverviewField({
               titlePath: "meta.title",
               descriptionPath: "meta.description",
@@ -152,10 +156,9 @@ export const Posts: CollectionConfig<"posts"> = {
             MetaImageField({
               relationTo: "media",
             }),
-
             MetaDescriptionField({}),
             PreviewField({
-              // if the `generateUrl` function is configured
+            // if the `generateUrl` function is configured
               hasGenerateFn: true,
 
               // field paths to match the target field for data

@@ -1,12 +1,6 @@
 import type { CollectionConfig } from "payload";
 
-import {
-  MetaDescriptionField,
-  MetaImageField,
-  MetaTitleField,
-  OverviewField,
-  PreviewField,
-} from "@payloadcms/plugin-seo/fields";
+import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from "@payloadcms/plugin-seo/fields";
 
 import { authenticated } from "~/cms/access/authenticated";
 import { authenticatedOrPublished } from "~/cms/access/authenticated-or-published";
@@ -89,6 +83,16 @@ export const Pages: CollectionConfig<"pages"> = {
           name: "meta",
           label: "SEO",
           fields: [
+            {
+              name: "hidden",
+              type: "checkbox",
+              label: "Hidden Page?",
+              defaultValue: false,
+              admin: {
+                description:
+                  "If checked, this page will be hidden from search engines and not indexed.",
+              },
+            },
             OverviewField({
               titlePath: "meta.title",
               descriptionPath: "meta.description",

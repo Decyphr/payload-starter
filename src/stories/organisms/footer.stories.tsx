@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { FooterNav } from "~/components/globals/footer/nav";
 
-import { footerData } from "../_mocks/links";
+import { footerData } from "../_mocks/nav";
 import { StoryContainer } from "../story-container";
 
 const meta: Meta<typeof FooterNav> = {

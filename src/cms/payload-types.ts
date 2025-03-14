@@ -194,6 +194,10 @@ export interface Page {
   };
   layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
   meta?: {
+    /**
+     * If checked, this page will be hidden from search engines and not indexed.
+     */
+    hidden?: boolean | null;
     title?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
@@ -234,6 +238,10 @@ export interface Post {
   relatedPosts?: (number | Post)[] | null;
   categories?: (number | Category)[] | null;
   meta?: {
+    /**
+     * If checked, this page will be hidden from search engines and not indexed.
+     */
+    hidden?: boolean | null;
     title?: string | null;
     /**
      * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
@@ -1027,6 +1035,7 @@ export interface PagesSelect<T extends boolean = true> {
   meta?:
     | T
     | {
+        hidden?: T;
         title?: T;
         image?: T;
         description?: T;
@@ -1135,6 +1144,7 @@ export interface PostsSelect<T extends boolean = true> {
   meta?:
     | T
     | {
+        hidden?: T;
         title?: T;
         image?: T;
         description?: T;
@@ -1618,7 +1628,7 @@ export interface Setting {
   };
   social?: {
     facebook?: string | null;
-    x?: string | null;
+    twitter?: string | null;
     instagram?: string | null;
     linkedin?: string | null;
     youtube?: string | null;
@@ -1701,7 +1711,7 @@ export interface SettingsSelect<T extends boolean = true> {
     | T
     | {
         facebook?: T;
-        x?: T;
+        twitter?: T;
         instagram?: T;
         linkedin?: T;
         youtube?: T;
