@@ -8,7 +8,7 @@ export function StoryContainer({
   children: React.ReactNode;
 }) {
   return (
-    <div className={cn("min-h-screen flex justify-center container mx-auto", className)}>
+    <div className={cn("min-h-screen flex justify-center container", className)}>
       {children}
     </div>
   );

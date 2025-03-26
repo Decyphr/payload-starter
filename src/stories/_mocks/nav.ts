@@ -62,46 +62,43 @@ export const headerData: HeaderType = {
   createdAt: "2023-01-01T12:00:00Z",
 };
 
-export const footerData: FooterType["navItems"] = [
-  {
-    link: {
-      type: "reference",
-      newTab: false,
-      reference: {
-        relationTo: "pages",
-        // @ts-expect-error - This is a mock, so the ID and slug are all that's needed to reference
-        value: {
-          id: 103,
-          slug: "privacy-policy",
+export const footerData: FooterType = {
+  id: 1,
+  navItems: [
+    {
+      link: {
+        type: "reference",
+        newTab: false,
+        reference: {
+          relationTo: "pages",
+          value: 1,
         },
+        label: "Home",
       },
-      label: "Privacy Policy",
+      id: "nav-item-1",
     },
-    id: "footer-item-1",
-  },
-  {
-    link: {
-      type: "custom",
-      newTab: true,
-      url: "https://www.example.com/terms-of-service",
-      label: "Terms of Service",
-    },
-    id: "footer-item-2",
-  },
-  {
-    link: {
-      type: "reference",
-      newTab: false,
-      reference: {
-        relationTo: "posts",
-        // @ts-expect-error - This is a mock, so the ID and slug are all that's needed to reference
-        value: {
-          id: 202,
-          slug: "latest-news",
+    {
+      link: {
+        type: "reference",
+        newTab: true,
+        reference: {
+          relationTo: "posts",
+          value: 2,
         },
+        label: "Blog",
       },
-      label: "Latest News",
+      id: "nav-item-2",
     },
-    id: "footer-item-3",
-  },
-];
+    {
+      link: {
+        type: "custom",
+        newTab: false,
+        url: "https://example.com/contact",
+        label: "Contact",
+      },
+      id: "nav-item-3",
+    },
+  ],
+  updatedAt: "2023-10-01T12:00:00Z",
+  createdAt: "2023-01-01T12:00:00Z",
+};

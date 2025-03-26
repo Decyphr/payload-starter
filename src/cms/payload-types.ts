@@ -1639,6 +1639,24 @@ export interface Setting {
   analytics?: {
     googleAnalyticsID?: string | null;
   };
+  helloBar?: {
+    enabled?: boolean | null;
+    content?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1723,6 +1741,12 @@ export interface SettingsSelect<T extends boolean = true> {
     | T
     | {
         googleAnalyticsID?: T;
+      };
+  helloBar?:
+    | T
+    | {
+        enabled?: T;
+        content?: T;
       };
   updatedAt?: T;
   createdAt?: T;

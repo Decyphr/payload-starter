@@ -74,6 +74,28 @@ export const Settings: GlobalConfig = {
             },
           ],
         },
+        {
+          label: "Hello Bar",
+          fields: [
+            {
+              name: "helloBar",
+              label: "Hello Bar",
+              type: "group",
+              fields: [
+                {
+                  name: "enabled",
+                  label: "Enabled",
+                  type: "checkbox",
+                },
+                {
+                  name: "content",
+                  label: "Content",
+                  type: "richText",
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
   ],

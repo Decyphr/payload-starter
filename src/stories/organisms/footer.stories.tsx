@@ -1,32 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { FooterNav } from "~/components/globals/footer/nav";
+import { FooterClient } from "~/components/globals/footer/component.client";
 
 import { footerData } from "../_mocks/nav";
-import { StoryContainer } from "../story-container";
 
-const meta: Meta<typeof FooterNav> = {
+const meta: Meta<typeof FooterClient> = {
   title: "Organisms/Footer",
-  component: FooterNav,
+  component: FooterClient,
   argTypes: {
-    links: {
+    data: {
       control: "object",
       defaultValue: footerData,
     },
   },
-  render: args => (
-    <StoryContainer>
-      <FooterNav {...args} />
-    </StoryContainer>
-  ),
 };
 
 export default meta;
-type Story = StoryObj<typeof FooterNav>;
+type Story = StoryObj<typeof FooterClient>;
 
 // Default navigation menu
 export const Default: Story = {
   args: {
-    links: footerData,
+    data: footerData,
   },
 };

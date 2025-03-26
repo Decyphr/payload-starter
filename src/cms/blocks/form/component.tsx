@@ -142,7 +142,7 @@ export const FormBlock: React.FC<
   );
 
   return (
-    <div className="container mx-auto lg:max-w-[48rem]">
+    <div className="container lg:max-w-[48rem]">
       {enableIntro && introContent && !hasSubmitted && (
         <RichText
           className="mb-8 lg:mb-12"

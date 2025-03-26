@@ -3,14 +3,14 @@ import { MenuIcon } from "lucide-react";
 import Link from "next/link";
 import * as React from "react";
 
-import type { Header } from "~/cms/payload-types";
+import type { Header as HeaderType } from "~/cms/payload-types";
 
 import { CMSLink } from "~/components/link";
 import { Logo } from "~/components/logo";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "~/components/ui/sheet";
 
 interface HeaderClientProps {
-  data: Header;
+  data: HeaderType;
 }
 
 export function HeaderClient({ data }: HeaderClientProps) {
@@ -34,14 +34,14 @@ export function HeaderClient({ data }: HeaderClientProps) {
   const navigation = data.navItems ?? [];
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-background">
+    <header className="relative inset-x-0 top-0 z-50 bg-background">
       <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/">
             <Logo
+              variant="dark"
               loading="eager"
               priority="high"
-              className="invert dark:invert-0"
             />
           </Link>
         </div>
@@ -75,9 +75,9 @@ export function HeaderClient({ data }: HeaderClientProps) {
             <div className="flex items-center justify-between">
               <Link href="/">
                 <Logo
+                  variant="dark"
                   loading="eager"
                   priority="high"
-                  className="invert dark:invert-0"
                 />
               </Link>
             </div>
