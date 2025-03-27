@@ -8,6 +8,10 @@
 - [shadcnUI](https://ui.shadcn.com/)
 - [Storybook](https://storybook.com/)
 
+## Deploy to Railway
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/ws2R07?referralCode=erdrN8)
+
 ## Get Started
 
 1. Copy `.env.example` to `.env` and update the values as needed.
