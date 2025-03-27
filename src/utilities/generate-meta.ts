@@ -25,12 +25,14 @@ export async function generateMeta(args: {
   const { doc } = args;
 
   const ogImage = getImageURL(doc?.meta?.image);
+  const hiddenPage = doc?.meta?.hidden;
 
   const title = doc?.meta?.title
     ? `${doc?.meta?.title} | Payload Website Template`
     : "Payload Website Template";
 
   return {
+    robots: hiddenPage ? "noindex" : undefined,
     description: doc?.meta?.description,
     openGraph: mergeOpenGraph({
       description: doc?.meta?.description || "",
