@@ -124,6 +124,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"hero_type" "enum_pages_hero_type" DEFAULT 'lowImpact',
   	"hero_rich_text" jsonb,
   	"hero_media_id" integer,
+  	"meta_hidden" boolean DEFAULT false,
   	"meta_title" varchar,
   	"meta_image_id" integer,
   	"meta_description" varchar,
@@ -245,6 +246,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"version_hero_type" "enum__pages_v_version_hero_type" DEFAULT 'lowImpact',
   	"version_hero_rich_text" jsonb,
   	"version_hero_media_id" integer,
+  	"version_meta_hidden" boolean DEFAULT false,
   	"version_meta_title" varchar,
   	"version_meta_image_id" integer,
   	"version_meta_description" varchar,
@@ -282,6 +284,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"title" varchar,
   	"hero_image_id" integer,
   	"content" jsonb,
+  	"meta_hidden" boolean DEFAULT false,
   	"meta_title" varchar,
   	"meta_image_id" integer,
   	"meta_description" varchar,
@@ -317,6 +320,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"version_title" varchar,
   	"version_hero_image_id" integer,
   	"version_content" jsonb,
+  	"version_meta_hidden" boolean DEFAULT false,
   	"version_meta_title" varchar,
   	"version_meta_image_id" integer,
   	"version_meta_description" varchar,
@@ -346,6 +350,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"id" serial PRIMARY KEY NOT NULL,
   	"alt" varchar,
   	"caption" jsonb,
+  	"prefix" varchar DEFAULT 'media',
   	"updated_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL,
   	"url" varchar,
@@ -528,6 +533,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"label" varchar,
   	"width" numeric,
   	"default_value" varchar,
+  	"placeholder" varchar,
   	"required" boolean,
   	"block_name" varchar
   );
@@ -634,6 +640,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"order" integer,
   	"parent_id" integer NOT NULL,
   	"path" varchar NOT NULL,
+  	"pages_id" integer,
   	"posts_id" integer
   );
   
@@ -762,6 +769,29 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"path" varchar NOT NULL,
   	"pages_id" integer,
   	"posts_id" integer
+  );
+  
+  CREATE TABLE IF NOT EXISTS "settings" (
+  	"id" serial PRIMARY KEY NOT NULL,
+  	"general_settings_site_title" varchar,
+  	"general_settings_tagline" varchar,
+  	"general_settings_logo_id" integer,
+  	"general_settings_favicon_id" integer,
+  	"general_settings_admin_email" varchar,
+  	"general_settings_phone" varchar,
+  	"meta_title" varchar,
+  	"meta_image_id" integer,
+  	"meta_description" varchar,
+  	"social_facebook" varchar,
+  	"social_twitter" varchar,
+  	"social_instagram" varchar,
+  	"social_linkedin" varchar,
+  	"social_youtube" varchar,
+  	"analytics_google_analytics_i_d" varchar,
+  	"hello_bar_enabled" boolean,
+  	"hello_bar_content" jsonb,
+  	"updated_at" timestamp(3) with time zone,
+  	"created_at" timestamp(3) with time zone
   );
   
   DO $$ BEGIN
@@ -1185,6 +1215,12 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   END $$;
   
   DO $$ BEGIN
+   ALTER TABLE "search_rels" ADD CONSTRAINT "search_rels_pages_fk" FOREIGN KEY ("pages_id") REFERENCES "public"."pages"("id") ON DELETE cascade ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
    ALTER TABLE "search_rels" ADD CONSTRAINT "search_rels_posts_fk" FOREIGN KEY ("posts_id") REFERENCES "public"."posts"("id") ON DELETE cascade ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
@@ -1318,6 +1354,24 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   
   DO $$ BEGIN
    ALTER TABLE "footer_rels" ADD CONSTRAINT "footer_rels_posts_fk" FOREIGN KEY ("posts_id") REFERENCES "public"."posts"("id") ON DELETE cascade ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
+   ALTER TABLE "settings" ADD CONSTRAINT "settings_general_settings_logo_id_media_id_fk" FOREIGN KEY ("general_settings_logo_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
+   ALTER TABLE "settings" ADD CONSTRAINT "settings_general_settings_favicon_id_media_id_fk" FOREIGN KEY ("general_settings_favicon_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
+  EXCEPTION
+   WHEN duplicate_object THEN null;
+  END $$;
+  
+  DO $$ BEGIN
+   ALTER TABLE "settings" ADD CONSTRAINT "settings_meta_image_id_media_id_fk" FOREIGN KEY ("meta_image_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
    WHEN duplicate_object THEN null;
   END $$;
@@ -1505,6 +1559,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "search_rels_order_idx" ON "search_rels" USING btree ("order");
   CREATE INDEX IF NOT EXISTS "search_rels_parent_idx" ON "search_rels" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "search_rels_path_idx" ON "search_rels" USING btree ("path");
+  CREATE INDEX IF NOT EXISTS "search_rels_pages_id_idx" ON "search_rels" USING btree ("pages_id");
   CREATE INDEX IF NOT EXISTS "search_rels_posts_id_idx" ON "search_rels" USING btree ("posts_id");
   CREATE INDEX IF NOT EXISTS "payload_jobs_log_order_idx" ON "payload_jobs_log" USING btree ("_order");
   CREATE INDEX IF NOT EXISTS "payload_jobs_log_parent_id_idx" ON "payload_jobs_log" USING btree ("_parent_id");
@@ -1555,7 +1610,10 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX IF NOT EXISTS "footer_rels_parent_idx" ON "footer_rels" USING btree ("parent_id");
   CREATE INDEX IF NOT EXISTS "footer_rels_path_idx" ON "footer_rels" USING btree ("path");
   CREATE INDEX IF NOT EXISTS "footer_rels_pages_id_idx" ON "footer_rels" USING btree ("pages_id");
-  CREATE INDEX IF NOT EXISTS "footer_rels_posts_id_idx" ON "footer_rels" USING btree ("posts_id");`)
+  CREATE INDEX IF NOT EXISTS "footer_rels_posts_id_idx" ON "footer_rels" USING btree ("posts_id");
+  CREATE INDEX IF NOT EXISTS "settings_general_settings_general_settings_logo_idx" ON "settings" USING btree ("general_settings_logo_id");
+  CREATE INDEX IF NOT EXISTS "settings_general_settings_general_settings_favicon_idx" ON "settings" USING btree ("general_settings_favicon_id");
+  CREATE INDEX IF NOT EXISTS "settings_meta_meta_image_idx" ON "settings" USING btree ("meta_image_id");`)
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
@@ -1622,6 +1680,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TABLE "footer_nav_items" CASCADE;
   DROP TABLE "footer" CASCADE;
   DROP TABLE "footer_rels" CASCADE;
+  DROP TABLE "settings" CASCADE;
   DROP TYPE "public"."enum_pages_hero_links_link_type";
   DROP TYPE "public"."enum_pages_hero_links_link_appearance";
   DROP TYPE "public"."enum_pages_blocks_cta_links_link_type";
